@@ -24,7 +24,7 @@ func NewProvider(host string, port int, user, password, dbName string) *provider
 
 func (p *provider) GetCounter() (int, error) {
 	var counter int
-	row := p.db.QueryRow("SELECT value FROM counter_table LIMIT 1")
+	row := p.db.QueryRow("SELECT value FROM count LIMIT 1")
 	err := row.Scan(&counter)
 	if err != nil {
 		return 0, err
@@ -33,6 +33,6 @@ func (p *provider) GetCounter() (int, error) {
 }
 
 func (p *provider) UpdateCounter(value int) error {
-	_, err := p.db.Exec("UPDATE counter_table SET value = value + $1", value)
+	_, err := p.db.Exec("UPDATE count SET value = value + $1", value)
 	return err
 }

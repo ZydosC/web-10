@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+
 	"log"
 	"web-10/internal/count/api"
 	"web-10/internal/count/config"
@@ -24,6 +25,6 @@ func main() {
 	use := usecase.NewUsecase(prv)
 	srv := api.NewServer(cfg.IP, cfg.Port, use)
 
-	log.Printf("Сервер запущен на %s\n", srv.Address)
+	log.Printf("Сервер запущен на ", srv.Address)
 	srv.Run()
 }

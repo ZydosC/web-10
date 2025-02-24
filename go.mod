@@ -1,11 +1,11 @@
-module github.com/ValeryBMSTU/web-10
+module web-10
 
-go 1.22.1
+go 1.24.0
 
 require (
+	github.com/ZydosC/web-10 v0.0.0-20241124165011-f3af4e0f7611
 	github.com/labstack/echo/v4 v4.13.3
 	github.com/lib/pq v1.10.9
-	gopkg.in/yaml.v2 v2.4.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 

@@ -24,7 +24,7 @@ func NewProvider(host string, port int, user, password, dbName string) *Provider
 
 func (p *Provider) SelectUser(name string) (string, error) {
 	var user string
-	row := p.conn.QueryRow("SELECT name FROM mytable WHERE name = $1", name)
+	row := p.conn.QueryRow("SELECT name FROM query WHERE name = $1", name)
 	err := row.Scan(&user)
 	if err != nil {
 		if err == sql.ErrNoRows {
@@ -36,7 +36,7 @@ func (p *Provider) SelectUser(name string) (string, error) {
 }
 
 func (p *Provider) InsertUser(name string) error {
-	_, err := p.conn.Exec("INSERT INTO mytable (name) VALUES ($1)", name)
+	_, err := p.conn.Exec("INSERT INTO query (name) VALUES ($1)", name)
 	if err != nil {
 		return err
 	}
